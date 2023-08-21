@@ -36,7 +36,7 @@
 # re: clean all
 
 
-NAME	=	ClapTrap
+NAME	=	ScavTrap
 
 CPP		=	c++
 

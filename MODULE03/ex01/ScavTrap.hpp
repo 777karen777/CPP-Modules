@@ -1,12 +1,9 @@
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cmath>
+#include "ClapTrap.hpp"
 
-class ClapTrap
+class ScavTrap: public ClapTrap
 {
 private:
 	std::string name;
@@ -16,22 +13,24 @@ private:
 
 public:
 
-	ClapTrap(std::string name);
-	ClapTrap(const ClapTrap &obj);
-	ClapTrap&  operator=(const ClapTrap &obj);
-	~ClapTrap(void);
+	ScavTrap(void);
+	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap &obj);
+	ScavTrap&  operator=(const ScavTrap &obj);
+	~ScavTrap(void);
 
 
 	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void guardGate() const;
+	// void takeDamage(unsigned int amount);
+	// void beRepaired(unsigned int amount);
 
-	//Getters
+	// //Getters
 
-	std::string getName(void) const;
-	int getHitPoints(void) const;
-	int getEnergyPoints(void) const;
-	int getattackDamage(void) const;
+	// std::string getName(void) const;
+	// int getHitPoints(void) const;
+	// int getEnergyPoints(void) const;
+	// int getattackDamage(void) const;
 
 };
 

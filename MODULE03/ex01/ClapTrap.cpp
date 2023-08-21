@@ -1,8 +1,13 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string _name) : name(_name), hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap()
 {
     std::cout << "Default constructor was called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string _name) : name(_name), hitPoints(10), energyPoints(10), attackDamage(0)
+{
+    std::cout << "Constructor with parameter was called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj) 
@@ -56,11 +61,37 @@ int ClapTrap::getattackDamage(void) const
     return (this->attackDamage);
 }
 
+    // Setters
+
+void ClapTrap::setName(std::string _name)
+{
+    // std::cout << "setName member function called"  << std::endl;
+    this->name = _name;
+}
+
+void ClapTrap::setHitPoints(int n)
+{
+    // std::cout << "setHitPoints member function called"  << std::endl;
+    this->hitPoints = n;
+}
+
+void ClapTrap::setEnergyPoints(int n)
+{
+    // std::cout << "energyPoints member function called"  << std::endl;
+    this->energyPoints = n;
+}
+
+void ClapTrap::setattackDamage(int n)    
+{
+    // std::cout << "energyPoints member function called"  << std::endl;
+    this->attackDamage = n;
+}
+
     // Other Member Functions
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (this->energyPoints > 0)
+    if (this->energyPoints > 0 && this->hitPoints > 0)
     {
         std::cout << "ClapTrap " << this->name << " attacks " << target << " causing " << this->attackDamage << " points of damage!" << std::endl;
         this->energyPoints--;
@@ -69,14 +100,14 @@ void ClapTrap::attack(const std::string& target)
     }
     else
     {
-        std::cout << "ClapTrap " << this->name << "can't attack because it doesn't have energyPoint!" << std::endl;
+        std::cout << "ClapTrap " << this->name << "can't attack because it doesn't have energyPoint or hitpoint!" << std::endl;
     }
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
     std::cout << "ClapTrap " << this->name << " gets " << amount << " points of damage!" << std::endl;
-    this->hitPoints -= amount;
+    this->hitPoints = (amount < static_cast<unsigned>(hitPoints)) ? hitPoints - amount : 0;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
