@@ -1,29 +1,26 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
-    std::cout << "ScavTrap's Default constructor was called" << std::endl;
+    std::cout << "FragTrap's Default constructor was called" << std::endl;
 }
-ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
+FragTrap::FragTrap(std::string _name) : ClapTrap(_name)
 {
     this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
-    // hitPoints = 100;
-    // energyPoints = 50;
-    // attackDamage = 20;
-    std::cout << "ScavTrap's constructor with parameter was called" << std::endl;
+	this->setEnergyPoints(100);
+	this->setAttackDamage(30);
+    std::cout << "FragTrap's constructor with parameter was called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &obj) 
+FragTrap::FragTrap(const FragTrap &obj) 
 {
-    std::cout << "ScavTrap's Copy constructor was called" << std::endl;
+    std::cout << "FragTrap's Copy constructor was called" << std::endl;
     *this = obj;    
 }
 
-ScavTrap&  ScavTrap::operator=(const ScavTrap &obj)
+FragTrap&  FragTrap::operator=(const FragTrap &obj)
 {
-    std::cout << "ScavTrap's Copy asignment operator was called" << std::endl;
+    std::cout << "FragTrap's Copy asignment operator was called" << std::endl;
     if(this != &obj)
     {
         this->setName(obj.getName());
@@ -35,9 +32,9 @@ ScavTrap&  ScavTrap::operator=(const ScavTrap &obj)
 }
 
 
-ScavTrap::~ScavTrap(void)  
+FragTrap::~FragTrap(void)  
 {
-    std::cout << "ScavTrap's Destructor was called" << std::endl;
+    std::cout << "FragTrap's Destructor was called" << std::endl;
 }
 
 // // Member Functions
@@ -68,18 +65,18 @@ ScavTrap::~ScavTrap(void)
 
 //     // Other Member Functions
 
-void ScavTrap::attack(const std::string& target)
+void FragTrap::attack(const std::string& target)
 {
     if (this->getEnergyPoints() > 0 && this->getHitPoints() > 0)
     {
-        std::cout << "ScavTrap " << this->getName() << " attacks " << target << " causing " << this->getAttackDamage() << " points of damage!" << std::endl;
+        std::cout << "FragTrap " << this->getName() << " attacks " << target << " causing " << this->getAttackDamage() << " points of damage!" << std::endl;
         setEnergyPoints(this->getEnergyPoints() - 1);
-        std::cout << "ScavTrap " << this->getName() << " naw hase " << this->getEnergyPoints() << " energyPoints left!" << std::endl;
+        std::cout << "FragTrap " << this->getName() << " naw hase " << this->getEnergyPoints() << " energyPoints left!" << std::endl;
 
     }
     else
     {
-        std::cout << "ScavTrap " << this->getName() << " can't attack because it doesn't have energyPoint or hitPoints!" << std::endl;
+        std::cout << "FragTrap " << this->getName() << " can't attack because it doesn't have energyPoint or hitPoints!" << std::endl;
     }
 }
 
@@ -104,9 +101,14 @@ void ScavTrap::attack(const std::string& target)
 //     }
 // }
 
-void ScavTrap::guardGate() const
+void FragTrap::guardGate() const
 {
-    std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+    std::cout << "FragTrap " << this->getName() << " is now in Gate keeper mode" << std::endl;
+}
+
+void FragTrap::highFivesGuys() const
+{
+    std::cout << "FragTrap " << this->getName() << " needs some high fives!" << std::endl;
 }
 
 
