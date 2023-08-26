@@ -1,9 +1,9 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main( void ) {
 
-	FragTrap b("B");
-	FragTrap a = b;
+	DiamondTrap b("B");
+	DiamondTrap a = b;
 	std::cout << a.getName() << std::endl;
 	std::cout << a.getHitPoints() << std::endl;
 	std::cout << a.getEnergyPoints() << std::endl;

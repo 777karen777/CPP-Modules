@@ -10,7 +10,7 @@ private:
     const Fixed y;
 public:
     Point(void);
-    Point(const Fixed a, const Fixed b);
+    Point(const Fixed& a, const Fixed& b);
     Point(const Point &obj);
     Point& operator=(const Point &obj);
     ~Point();

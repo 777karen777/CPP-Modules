@@ -12,21 +12,11 @@ public:
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap &obj);
 	ScavTrap&  operator=(const ScavTrap &obj);
-	~ScavTrap(void);
+	virtual ~ScavTrap(void);
 
 
 	void attack(const std::string& target);
 	void guardGate() const;
-	// void takeDamage(unsigned int amount);
-	// void beRepaired(unsigned int amount);
-
-	// //Getters
-
-	// std::string getName(void) const;
-	// int getHitPoints(void) const;
-	// int getEnergyPoints(void) const;
-	// int getAttackDamage(void) const;
-
 };
 
 #endif

@@ -10,7 +10,7 @@ Point::~Point(void)
     std::cout << "Destructor was called" << std::endl;
 }
 
-Point::Point(const Fixed a, const Fixed b):x(a), y(b)  
+Point::Point(const Fixed& a, const Fixed& b):x(a), y(b)  
 {
     std::cout << "With arguments constructor was called" << std::endl;
 }

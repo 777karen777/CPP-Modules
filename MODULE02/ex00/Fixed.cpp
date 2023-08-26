@@ -4,13 +4,15 @@ Fixed::Fixed(void):rawBits(0)
 {
     std::cout << "Default constructor was called" << std::endl;
 }
-Fixed::Fixed(Fixed &obj) 
+
+Fixed::Fixed(const Fixed &obj) 
 {
     std::cout << "Copy constructor was called" << std::endl;
     *this = obj;    
     // this->rawBits = obj.getRawBits();
 }
-Fixed&  Fixed::operator=(Fixed &obj)
+
+Fixed&  Fixed::operator=(const Fixed &obj)
 {
     std::cout << "Copy asignment operator was called" << std::endl;
     if(this != &obj)
@@ -20,6 +22,7 @@ Fixed&  Fixed::operator=(Fixed &obj)
     }
     return (*this);
 }
+
 Fixed::~Fixed(void)  
 {
     std::cout << "Destructor was called" << std::endl;

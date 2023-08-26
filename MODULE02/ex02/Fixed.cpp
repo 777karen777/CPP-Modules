@@ -150,6 +150,27 @@ void Fixed::setRawBits( int const raw )
 }
 
 
+Fixed& Fixed::min(Fixed &obj1, Fixed &obj2) 
+{
+    return (obj1 < obj2 ? obj1 : obj2);
+}
+
+
+const Fixed& Fixed::min(const Fixed &obj1, const Fixed &obj2)
+{
+    return (obj1 < obj2 ? obj1 : obj2);
+}
+
+Fixed& Fixed::max(Fixed &obj1, Fixed &obj2) 
+{
+    return (obj1 > obj2 ? obj1 : obj2);
+}
+
+const Fixed& Fixed::max(const Fixed &obj1, const Fixed &obj2)
+{
+	return (obj1 > obj2 ? obj1 : obj2);
+}
+
 
 
 // Non Member Functions
@@ -159,4 +180,3 @@ std::ostream &operator <<(std::ostream &ost, const Fixed &obj)
     ost << obj.toFloat();
     return ost;
 }
-

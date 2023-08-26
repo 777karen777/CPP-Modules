@@ -44,24 +44,10 @@ public:
 	float toFloat( void ) const;
 	int toInt( void ) const;
 
-	static Fixed& min(Fixed &obj1, Fixed &obj2) 
-	{
-		return (obj1 < obj2 ? obj1 : obj2);
-	}
-
-	static const Fixed& min(const Fixed &obj1, const Fixed &obj2)
-	{
-		return (obj1 < obj2 ? obj1 : obj2);
-	}
-	static Fixed& max(Fixed &obj1, Fixed &obj2) 
-	{
-		return (obj1 > obj2 ? obj1 : obj2);
-	}
-
-	static const Fixed& max(const Fixed &obj1, const Fixed &obj2)
-	{
-		return (obj1 > obj2 ? obj1 : obj2);
-	}
+	static Fixed& min(Fixed &obj1, Fixed &obj2);
+	static Fixed& max(Fixed &obj1, Fixed &obj2);
+	static const Fixed& min(const Fixed &obj1, const Fixed &obj2);
+	static const Fixed& max(const Fixed &obj1, const Fixed &obj2);
 };
 	std::ostream &operator <<(std::ostream &ost, const Fixed &obj);
 
