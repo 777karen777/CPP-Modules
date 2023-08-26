@@ -17,9 +17,10 @@ public:
 	DiamondTrap(const DiamondTrap &obj);
 	DiamondTrap&  operator=(const DiamondTrap &obj);
 	~DiamondTrap(void);
+	using ScavTrap::attack;
 
 	void whoAmI();
-	// void attack(const std::string& target);
+	//void attack(const std::string& target);
 	// void guardGate() const;
 	// void highFivesGuys(void) const;
 	// void takeDamage(unsigned int amount);

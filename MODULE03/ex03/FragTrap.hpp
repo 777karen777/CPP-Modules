@@ -16,7 +16,7 @@ public:
 
 
 	void attack(const std::string& target);
-	void guardGate() const;
+	// void guardGate() const;
 	void highFivesGuys(void) const;
 	// void takeDamage(unsigned int amount);
 	// void beRepaired(unsigned int amount);

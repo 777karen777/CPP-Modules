@@ -2,8 +2,8 @@
 
 int main( void ) {
 
+	DiamondTrap a ("A");
 	DiamondTrap b("B");
-	DiamondTrap a = b;
 	std::cout << a.getName() << std::endl;
 	std::cout << a.getHitPoints() << std::endl;
 	std::cout << a.getEnergyPoints() << std::endl;

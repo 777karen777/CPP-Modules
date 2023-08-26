@@ -10,7 +10,7 @@ int main( void ) {
 	a.attack(b.getName());
 	b.takeDamage(a.getAttackDamage());
 	b.beRepaired(7);
-	b.guardGate();
+	// b.guardGate();
 	b.highFivesGuys();
 	
 	return 0;

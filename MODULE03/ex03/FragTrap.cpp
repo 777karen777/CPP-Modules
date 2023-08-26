@@ -101,10 +101,10 @@ void FragTrap::attack(const std::string& target)
 //     }
 // }
 
-void FragTrap::guardGate() const
-{
-    std::cout << "FragTrap " << this->getName() << " is now in Gate keeper mode" << std::endl;
-}
+// void FragTrap::guardGate() const
+// {
+//     std::cout << "FragTrap " << this->getName() << " is now in Gate keeper mode" << std::endl;
+// }
 
 void FragTrap::highFivesGuys() const
 {

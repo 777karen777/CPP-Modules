@@ -36,7 +36,7 @@
 # re: clean all
 
 
-NAME	=	FragTrap
+NAME	=	DiamondTrap
 
 CPP		=	c++
 
