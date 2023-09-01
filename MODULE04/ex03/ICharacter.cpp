@@ -5,14 +5,9 @@ AMateria::AMateria()
     std::cout << "AMateria's Default constructor was called" << std::endl;
 }
 
-AMateria::AMateria()
+AMateria::AMateria(std::string const & type)
 {
     std::cout << "AMateria's Default constructor was called" << std::endl;
-}
-
-AMateria::AMateria(std::string const & _type) : type(_type)
-{
-    std::cout << "AMateria's  constructor with parameter was called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria &obj) 
@@ -40,8 +35,7 @@ AMateria::~AMateria(void)
 // Member Functions
 
     // Getters
-
-const std::string& AMateria::getType() const
+std::string AMateria::getType(void) const
 {
     return (this->type);
 }
@@ -56,7 +50,3 @@ void AMateria::setType(std::string _type)
 
     // Other member functions
 
-void AMateria::use(ICharacter& target)
-{
-
-}
