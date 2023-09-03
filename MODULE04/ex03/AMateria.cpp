@@ -5,11 +5,6 @@ AMateria::AMateria()
     std::cout << "AMateria's Default constructor was called" << std::endl;
 }
 
-AMateria::AMateria()
-{
-    std::cout << "AMateria's Default constructor was called" << std::endl;
-}
-
 AMateria::AMateria(std::string const & _type) : type(_type)
 {
     std::cout << "AMateria's  constructor with parameter was called" << std::endl;
@@ -58,5 +53,5 @@ void AMateria::setType(std::string _type)
 
 void AMateria::use(ICharacter& target)
 {
-
+    std::cout << "\"use\" member function called"  << std::endl;
 }

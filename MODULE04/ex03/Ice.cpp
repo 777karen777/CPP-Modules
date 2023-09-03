@@ -1,29 +1,19 @@
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
-AMateria::AMateria()
+Ice::Ice() : AMateria("ice")
 {
-    std::cout << "AMateria's Default constructor was called" << std::endl;
+    std::cout << "Ice's Default constructor was called" << std::endl;
 }
 
-AMateria::AMateria()
+Ice::Ice(const Ice &obj) 
 {
-    std::cout << "AMateria's Default constructor was called" << std::endl;
-}
-
-AMateria::AMateria(std::string const & _type) : type(_type)
-{
-    std::cout << "AMateria's  constructor with parameter was called" << std::endl;
-}
-
-AMateria::AMateria(const AMateria &obj) 
-{
-    std::cout << "AMateria's Copy constructor was called" << std::endl;
+    std::cout << "Ice's Copy constructor was called" << std::endl;
     this->type = obj.type;    
 }
 
-AMateria&  AMateria::operator=(const AMateria &obj)
+Ice&  Ice::operator=(const Ice &obj)
 {
-    std::cout << "AMateria's Copy asignment operator was called" << std::endl;
+    std::cout << "Ice's Copy asignment operator was called" << std::endl;
     if(this != &obj)
     {
         this->type = obj.type;    
@@ -32,31 +22,20 @@ AMateria&  AMateria::operator=(const AMateria &obj)
 }
 
 
-AMateria::~AMateria(void)  
+Ice::~Ice(void)  
 {
-    std::cout << "AMateria's Destructor was called" << std::endl;
+    std::cout << "Ice's Destructor was called" << std::endl;
 }
 
 // Member Functions
 
-    // Getters
-
-const std::string& AMateria::getType() const
+AMateria* Ice::clone() const
 {
-    return (this->type);
+    AMateria *newClone = new Ice();
+    std::cout << "Ice's \"clone\" function called." << std::endl;
+    return newClone;
 }
-
-    // Setters
-
-void AMateria::setType(std::string _type)
+void Ice::use(ICharacter& target)
 {
-    // std::cout << "setName member function called"  << std::endl;
-    this->type = _type;
-}
-
-    // Other member functions
-
-void AMateria::use(ICharacter& target)
-{
-
+    std::cout << "shoots an ice bolt at " << target.getName() << std::endl;
 }
