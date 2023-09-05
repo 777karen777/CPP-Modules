@@ -53,5 +53,6 @@ void AMateria::setType(std::string _type)
 
 void AMateria::use(ICharacter& target)
 {
+    (void) target;
     std::cout << "\"use\" member function called"  << std::endl;
 }

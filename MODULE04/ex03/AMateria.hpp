@@ -18,7 +18,7 @@ public:
     AMateria(const AMateria &obj);
 	AMateria&  operator=(const AMateria &obj);
 
-    ~AMateria();
+    virtual ~AMateria();
     
     virtual AMateria* clone() const = 0;
     virtual void use(ICharacter& target);

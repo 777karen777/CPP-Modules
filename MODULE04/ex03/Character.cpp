@@ -71,7 +71,7 @@ Character::~Character(void)
     for(int i = 0; i < trashSize; i++)
     {    
         delete(trash[i]);
-        trash[i] == nullptr;    
+        trash[i] = nullptr;    
     }
 
     std::cout << "Character's Destructor was called" << std::endl;
@@ -99,9 +99,10 @@ void Character::setName(std::string _name)
     {
         for(int i = 0; i < 4; i++)
         {
-            if (slots[i] != nullptr)
+            if (slots[i] == nullptr)
             {
                 slots[i] = m->clone();
+                return;
             }
         }
         
@@ -125,7 +126,10 @@ void Character::setName(std::string _name)
     }
     void Character::use(int idx, ICharacter& target)
     {
-        
+        if(slots[idx] != nullptr)
+        {
+            slots[idx]->use(target);
+        }
     }
 
     void Character::emptyTrash(void)
@@ -133,7 +137,7 @@ void Character::setName(std::string _name)
         for(int i = 0; i < trashSize; i++)
         {    
             delete(trash[i]);
-            trash[i] == nullptr;    
+            trash[i] = nullptr;    
         }
         trashSize = 0;
     }

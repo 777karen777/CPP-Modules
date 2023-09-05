@@ -20,12 +20,15 @@ int main()
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
+    // std::cout << std::endl << tmp->getType() << std::endl << std::endl;
     me->equip(tmp);
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
+    // std::cout << std::endl << "!!! PRIV !!!" << std::endl << std::endl;
     me->use(1, *bob);
     delete bob;
     delete me;
     delete src;
+    // system("leaks Materia");
     return 0;
 }

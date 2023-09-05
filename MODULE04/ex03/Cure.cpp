@@ -1,6 +1,6 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("Cure")
+Cure::Cure() : AMateria("cure")
 {
     std::cout << "Cure's Default constructor was called" << std::endl;
 }
@@ -18,6 +18,7 @@ Cure&  Cure::operator=(const Cure &obj)
     // {
     //     this->type = obj.type;    
     // }
+    (void) obj;
     return (*this);
 }
 
@@ -37,5 +38,5 @@ AMateria* Cure::clone() const
 }
 void Cure::use(ICharacter& target)
 {
-    std::cout << "heals << " << target.getName() << "’s wounds." << std::endl;
+    std::cout << "heals " << target.getName() << "’s wounds." << std::endl;
 }
