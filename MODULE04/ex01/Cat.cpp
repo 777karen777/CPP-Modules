@@ -23,7 +23,6 @@ Cat&  Cat::operator=(const Cat &obj)
     if(this != &obj)
     {
         this->type = obj.type;    
-        // mozg = new Brain;
         *mozg = *(obj.mozg);
     }
     return (*this);

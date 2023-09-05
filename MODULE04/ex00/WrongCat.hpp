@@ -10,15 +10,14 @@
 
 class WrongCat : public WrongAnimal
 {
-protected:
 public:
 
 	WrongCat();
 	WrongCat(const WrongCat &obj);
 	WrongCat&  operator=(const WrongCat &obj);
-	virtual ~WrongCat(void);
+	~WrongCat(void);
 
-	virtual void makeSound() const;
+	void makeSound() const;
 
 };
 

@@ -21,8 +21,7 @@ Dog&  Dog::operator=(const Dog &obj)
     if(this != &obj)
     {
         this->type = obj.type;  
-        // mozg = new Brain;
-        *mozg = *(obj.mozg);    
+        *mozg = *(obj.mozg);
     }
     return (*this);
 }

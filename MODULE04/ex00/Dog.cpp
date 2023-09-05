@@ -3,7 +3,6 @@
 Dog::Dog()
 {
     this->type = "Dog";
-
     std::cout << "Dog's Default constructor was called" << std::endl;
 }
 
@@ -24,7 +23,7 @@ Dog&  Dog::operator=(const Dog &obj)
 }
 
 
-Dog::~Dog(void)  
+Dog::~Dog()  
 {
     std::cout << "Dog's Destructor was called" << std::endl;
 }

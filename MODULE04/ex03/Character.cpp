@@ -63,7 +63,7 @@ Character::~Character(void)
 {
     for(int i = 0; i < 4; i++)
     {
-        if (slots[i] == nullptr)
+        if (slots[i] != nullptr)
         {
             delete(slots[i]);
         }

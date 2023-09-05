@@ -8,6 +8,13 @@
 
 int main()
 {
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    delete j;
+    delete i;
+
+    return 0;
+    
 //     const Animal* meta = new Animal();
 //     const Animal* i = new Dog();
 //    // const Animal* l = new Dog();
@@ -16,6 +23,7 @@ int main()
 //     i = j;
 //     delete meta;
 //     delete j;
+
 //     // i->makeSound(); //will output the cat sound!
 //     // Dog basic;
 //     // {
@@ -24,32 +32,33 @@ int main()
 //     // };
 
 //     return 0;
-    int num = 2;
 
-    const Animal *animals[num];
-    for (int i = 0; i < num; ++i)
-    {
-        if(i % 2 == 0)
-        {
-            animals[i] = new Dog();
-        }
-        else
-        {
-            animals[i] = new Cat();
-        }
-    }
+    // int num = 2;
 
-    for (int i = 0; i < num; ++i)
-    {
-        std::cout << std::endl;
-        std::cout << "This is a " << animals[i]->getType() << "." << std::endl;
-        animals[i]->makeSound();
-        std::cout << std::endl;
-    }
+    // const Animal *animals[num];
+    // for (int i = 0; i < num; ++i)
+    // {
+    //     if(i % 2 == 0)
+    //     {
+    //         animals[i] = new Dog();
+    //     }
+    //     else
+    //     {
+    //         animals[i] = new Cat();
+    //     }
+    // }
 
-    for(int i = 0; i < num; ++i)
-    {
-        delete (animals[i]);
-    }
+    // for (int i = 0; i < num; ++i)
+    // {
+    //     std::cout << std::endl;
+    //     std::cout << "This is a " << animals[i]->getType() << "." << std::endl;
+    //     animals[i]->makeSound();
+    //     std::cout << std::endl;
+    // }
+
+    // for(int i = 0; i < num; ++i)
+    // {
+    //     delete (animals[i]);
+    // }
 
 }

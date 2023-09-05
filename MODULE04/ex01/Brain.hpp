@@ -11,7 +11,6 @@ class Brain
 {
 protected:
 	std::string ideas[100];
-	// std::array<std::string("kar"), 100> _ideas;
 public:
 
 	Brain();
