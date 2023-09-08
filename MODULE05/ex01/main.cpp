@@ -5,16 +5,19 @@ int main()
 {
 	try
 	{
-		Bureaucrat a(150, "AAA");
-		Form dipl("dipl", 77 , 77 );
+		Bureaucrat a(7, "AAA");
+		Form dipl("dipl", 21 , 7 );
 		//a.incGrade();
 		//a.decGrade();
-		std::cout << a.getName() << a.getGrade() << std::endl;
+		// std::cout << a.getName() << a.getGrade() << std::endl;
 		// a.incGrade();
+		
 
 		// a.decGrade();
-		std::cout << a << std::endl;
-		std::cout << dipl << std::endl;
+		// std::cout << a << std::endl;
+		std::cout << dipl << std::endl << std::endl;
+		dipl.beSigned(a);
+		std::cout << dipl << std::endl << std::endl;
 	}
 	catch(const std::exception& e)
 	{
