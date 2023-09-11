@@ -2,12 +2,14 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
+
 
 
 int main()
 {
 	try
-	{
+	/* {
 		Bureaucrat a(5, "AAA");
 		ShrubberyCreationForm S("Shrubb");
 		RobotomyRequestForm R("Rob");
@@ -25,11 +27,19 @@ int main()
 		// std::cout << dipl << std::endl << std::endl;
 		// dipl.beSigned(a);
 		// std::cout << dipl << std::endl << std::endl;
+	} */
+	{
+		Bureaucrat a(5, "AAA");
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		// std::cout << rrf << std::endl << std::endl;
+		rrf->beSigned(a);
+		rrf->execute(a);
+		// a.executeForm(*rrf);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-
 }
