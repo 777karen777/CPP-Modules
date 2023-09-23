@@ -1,14 +1,13 @@
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
 
-int main(int argc, char **argv)
+int main()
 {
-	if(argc != 2)
-	{
-		std::cout << "Wrong Argument!" << std::endl;
-		return -1;
-	}
-
-	ScalarConverter::convert(argv[1]);
+	Data *a = new(Data);
+	std::cout << a << std::endl;
+	uintptr_t n = Serializer::serialize(a);
+	std::cout << n << std::endl;
+	Data *b = Serializer::deserialize(n);
+	std::cout << b << std::endl;	
 	return 0;
 }

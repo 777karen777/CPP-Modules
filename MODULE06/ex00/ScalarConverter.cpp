@@ -114,11 +114,11 @@ int ScalarConverter::validSumbs(std::string s)
 double ScalarConverter::isValid(std::string s)
 {
     // int i = 0;
-    double minus = 1;
+    double minus = 1.0;
     // double num;
     if (s[0] == '-')
     {
-        minus = -1;
+        minus = -1.0;
         s = s.substr(1);
     }
     int eFlag = ScalarConverter::validE(s);
@@ -141,24 +141,24 @@ double ScalarConverter::isValid(std::string s)
         std::istringstream(firstPart) >> f;
         std::istringstream(lastPart) >> l;
         std::cout << " TtTTTT "<< firstPart << std::endl;
-        return f * pow(10, l);
+        return (f * pow(10, l)) * minus;
     }
     if(dotFlag == 1)
     {
         double f;
         std::istringstream(s) >> f;
-        return f;
+        return f * minus;
     }
     if(fFlag == 1)
     {
         std::string firstPart = s.substr(0, s.length() - 1);
         double f;
         std::istringstream(firstPart) >> f;
-        return f;
+        return f * minus;
     }    
     double f;
     std::istringstream(s) >> f;
-    return f;
+    return f * minus;
 }
 
 void ScalarConverter::printAll(std::string c, std::string i, std::string f, std::string d)
