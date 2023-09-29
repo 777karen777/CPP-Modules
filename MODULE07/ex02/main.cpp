@@ -1,27 +1,54 @@
-#include "Iter.hpp"
+// #include <iostream>
+#include "Array.hpp"
 
-template <typename T> void iter(T *arr, size_t length, void (*f)(const T&))
+#define MAX_VAL 750
+int main(int, char**)
 {
-    for(size_t i = 0; i < length; ++i)
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
     {
-        f(arr[i]);
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
     }
-}
-template <typename T> void printElem(const T &elem)
-{
-    std::cout << elem << std::endl;
-}
+    //SCOPE
+    {
+        Array<int> tmp;
+        tmp = numbers;
+        Array<int> test(tmp);
+    }
 
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL-1] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-int main( void ) 
-{
-    int a[] = {1,2,3,4,5};
-    char c[] = {'a','b', 'c', 'd'};
-
-    int na = sizeof(a) / sizeof(a[0]);    
-    int nc = sizeof(c) / sizeof(c[0]);
-    iter<int>(a, na, printElem<int>);
-    std::cout << std::endl << "next" << std::endl;
-    iter<char>(c, nc, printElem<char>);
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
     return 0;
 }
