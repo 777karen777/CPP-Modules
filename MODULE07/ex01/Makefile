@@ -1,5 +1,5 @@
 
-NAME	=	Templates
+NAME	=	Iter
 
 CPP		=	c++
 

@@ -1,5 +1,5 @@
 
-NAME	=	Templates
+NAME	=	Array
 
 CPP		=	c++
 
