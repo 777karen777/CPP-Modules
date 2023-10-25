@@ -6,14 +6,14 @@
 template <typename T>
 Array<T>::Array() : arr(NULL), size(0)
 {
-	std::cout << "Defawlt constructor was called!" << std::endl;
+	std::cout << "Default constructor was called!" << std::endl;
 }
 
 template <typename T> 
 Array<T>::Array(size_t n) : size(n)
 {
 	arr = new T[n];
-	std::cout << "Parametred constructor was called!" << std::endl;
+	std::cout << "Parametered constructor was called!" << std::endl;
 }
 
 template <typename T> 
