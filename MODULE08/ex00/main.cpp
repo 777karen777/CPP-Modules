@@ -8,8 +8,8 @@ int main( void )
     
     try
     {
-        int i = easyfind(fList, 3);
-        std::cout << "First Occurence is at " << i << " index!" << std::endl;
+        auto i = easyfind(fList, 31);
+        std::cout << "First Occurence is this: " << *i << std::endl;
     }
     catch(const std::exception& e)
     {

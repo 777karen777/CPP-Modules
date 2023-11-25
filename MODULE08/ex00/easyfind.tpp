@@ -1,20 +1,16 @@
 #ifndef EASYFIND_TPP
 # define EASYFIND_TPP
-
 #include "easyfind.hpp"
 
 template <typename T> 
-size_t easyfind(const T &cont, int n)
+typename T::iterator easyfind(T &cont, int n)
 {
-    size_t ind = 0;
-    for(auto i = cont.begin(); i != cont.end(); i++)
+    typename T::iterator i = std::find(cont.begin(), cont.end(), n);    
+    // if(*i == n)
+    if(i != cont.end())
     {
-        if(*i == n)
-        {
-            return ind;
-        }
-        ind++;
-    }
+        return i;
+    }    
     throw std::runtime_error("No occurrence is found !");
 }
 
