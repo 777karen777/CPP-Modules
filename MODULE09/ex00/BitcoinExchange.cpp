@@ -5,15 +5,8 @@ BitcoinExchange::BitcoinExchange()
     // std::cout << "Default constructor called." << std::endl;
 }
 
-/* BitcoinExchange::BitcoinExchange(size_t _max) : max(_max)
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj) : exchange_rates (obj.exchange_rates)
 {
-    std::cout << "Parametered constructor called." << std::endl;
-} */
-
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj) : exchange_rates (obj.exchange_rates) /* , cont(obj.cont) */
-{
-    // cont = obj.cont;
-    // cont.assign(obj.cont.begin(), obj.cont.end());
     std::cout << "Cpoy constructor called." << std::endl;
 }
 
@@ -34,48 +27,29 @@ BitcoinExchange::~BitcoinExchange()
 
 void BitcoinExchange::read_exchange_rate()
 {
-    // File pointer
-    std::fstream fin; // Changed fstream to ifstream for reading
-
-    // Open an existing file
+    std::fstream fin;
+    
     fin.open("data.csv", std::ios::in);
-
-   
-    // Map exchange_rates;
+    
     std::string line, date, rate;
     getline(fin, line); // To esclude the first ` header line.
 
-    while (getline(fin, line)) // Removed the redundant fin >> temp
+    while (getline(fin, line))
     {
         std::stringstream s(line);
 
         getline(s, date, ',');
         getline(s, rate, ',');
-        // std::cout << "L-54" << date  << rate << std::endl;
-        /* if(date == "date")
-        {
-            continue;
-        } */
-
-
         exchange_rates.insert(std::pair<std::string, double>(remove_ws(date), stod(rate)));
-            
-       
     }
-
     fin.close();
 }
 
 void BitcoinExchange::read_arg_file(std::string file)
 {
-    // File pointer
-    std::fstream fin; // Changed fstream to ifstream for reading
-
-    // Open an existing file
+    std::fstream fin;
     fin.open(file, std::ios::in);
-
-   
-    // Map exchange_rates;
+    
     std::string line, date, deposit;
     double total;
     getline(fin, line); // To esclude the first ` header line.
@@ -97,7 +71,6 @@ void BitcoinExchange::read_arg_file(std::string file)
             std::cout << "Error: bad input7 => " << line << std::endl;
             continue;
         }
-        // std::cout << " 99 - !!" << date.erase(date.find_last_not_of(" \t\n\r\f\v") + 1)  << "!!" << std::endl;
 
         if(valid_deposit_check(deposit) == false)
         {
@@ -119,30 +92,6 @@ double BitcoinExchange::count_total(std::string date, std::string deposit)
     Map::iterator itr = exchange_rates.lower_bound(date);
     // std::cout << " M_date - " << itr->first << " M_val - " << itr->second  << " arg_date - " << date << " dep - " << stod(deposit) << "  === ";
     return (stod(deposit) * itr->second);
-
-   /*  Map::iterator itr = exchange_rates.upper_bound(date);
-
-    // Check if the iterator is valid
-    if (itr != exchange_rates.end()) {
-        try {
-            // Convert deposit string to double
-            double depositValue = stod(deposit);
-
-            // Calculate and return the total
-            return depositValue * itr->second;
-        } catch (const std::invalid_argument& e) {
-            // Handle the case where stod fails (e.g., deposit is not a valid double)
-            std::cerr << "Error converting deposit to double: " << e.what() << std::endl;
-            // You might want to return an error value or throw an exception here
-        }
-    } else {
-        // Handle the case where the iterator is at the end of the map
-        std::cerr << "No exchange rate found for the given date." << std::endl;
-        // You might want to return an error value or throw an exception here
-    }
-
-    // Return a default value or handle the error case accordingly
-    return 0.0;  // Change this to an appropriate default value */
 }
 
 
@@ -162,7 +111,7 @@ int valid_word_count(std::string s, char delim)
     {
         return 0;
     }
-    if (!s.empty() /* && s.find(delim) == string::npos */)
+    if (!s.empty())
     {
         count++;
     }
@@ -195,24 +144,7 @@ bool valid_date_check(std::string s, char delim)
     getline(str, s_year, delim);
     getline(str, s_month, delim);
     getline(str, s_day, delim);
-
-    // std::cout << " 169 \n" << s_year << " $ " << s_month << " $ " << s_day << std::endl;
-    // if(isNumber(s_year) == false /* or isNumber(s_month) == false or isNumber(s_day) == false */)
-    /* {
-        std::cout << " 172 - " << s_year << " is false year!" << std::endl;
-        // return false;
-    }
-    if(isNumber(s_month) == false)
-    {
-        std::cout << " 177 - " << s_month << " is false s_month!" << std::endl;
-        // return false;
-    }
-    if(isNumber(s_day) == false)
-    {
-        std::cout << " 182 - " << s_day << " is false s_day!" << std::endl;
-        // return false;
-    } */
-
+    
     if(isNumber(s_year) == false or isNumber(s_month) == false or isNumber(s_day) == false)
     {
         return false;
@@ -222,14 +154,12 @@ bool valid_date_check(std::string s, char delim)
     month = stoi(s_month);
     day = stoi(s_day);
  
-  
-
     if (year > MAX_VALID_YR || year < MIN_VALID_YR) 
         return false; 
     if (month < 1 || month > 12) 
         return false; 
     if (day < 1 || day > 31) 
-    return false; 
+        return false; 
   
     // Handle February month  
     // with leap year 
@@ -278,12 +208,9 @@ bool isNumber(const std::string& str)
     double num;
     char remaining;
 
-    // Skip leading whitespaces
-    iss >> std::ws;
-
     // Attempt to extract a double
-    if (!(iss >> num) || iss.get(remaining)) {
-        // std::cout << " !!!240!!! " << num << std::endl;
+    if (!(iss >> num) || iss.get(remaining))
+    {
         return false; // Failed to extract a valid double or there are extra characters
     }
 
@@ -293,18 +220,6 @@ bool isNumber(const std::string& str)
     }
 
     return true;
-
-   /*  std::istringstream iss(s);
-    double num;
-    iss >> std::ws;
-    iss >> num >> std::ws;
-    // std::cout << " !!!255!!!" << num << std::endl;
-
-    return iss.eof() && !iss.fail(); */
-
-    
-
-    // return !s.empty() && std::all_of(s.begin(), s.end(), ::isdigit);
 }
 
 
